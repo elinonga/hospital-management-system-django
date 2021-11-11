@@ -1,0 +1,2 @@
+# hospital-management-system-django
+Named Zaina Hospital is an online Hospital Management system built with Django. The system lets the users register as Patients while the admin will register theDoctors. And also the system lets the patients make an online appointment, donate organs and see their prescriptions among other things. And there's a lot more with the doctor's side &amp; admin's. The project will be updated regularly.
