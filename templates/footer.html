@@ -1,0 +1,195 @@
+{% load static %}
+
+<!-- footer -->
+<footer class="py-sm-5">
+    <div class="container">
+        <div class="row py-5">
+            <!-- footer grid1 -->
+            <div class="col-lg-3 col-sm-6 fv5-contact">
+                <h2 class="mb-4">Contact Us</h2>
+                <div class="fv3-contact mt-3">
+                
+                    <span class="fas fa-home mr-2"></span>
+                    <p>168 Mwai Kibaki Rd, Mikocheni</p>
+                </div>
+                <div class="fv3-contact mt-3">
+                    <span class="fas fa-phone-volume mr-2"></span>
+                    <p>+255 621 410 816</p>
+                </div>
+                <div class="fv3-contact mt-3">
+                    <span class="fas fa-envelope-open mr-2"></span>
+                    <a href="mailto:info@zainaclinic.com" class="text-secondary">info@elinonga.com</a>
+                </div>
+            </div>
+            <!-- //footer grid1 -->
+            <!-- footer grid2 -->
+            <div class="col-lg-3  col-sm-6 footv3-left text-lg-center my-sm-0 mt-5">
+                <h3 class="mb-4">Opening Hours</h3>
+                <ul class="list-agileits">
+                    <li>
+                        Mon – Fri ------- 09:00-17:00
+                    </li>
+                    <li class="my-3">
+                        Saturday -------- 09:30-17:00</a>
+                    </li>
+                    <li class="mb-3">
+                        Sunday ---------- 10:30-18:00
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- //footer grid2 -->
+            <!-- footer grid3 -->
+            <div class="col-lg-3  col-sm-6 footv3-left text-lg-center my-lg-0 mt-sm-5 mt-5">
+                <h3 class="mb-4">Navigation</h3>
+                <ul class="list-agileits">
+                    <li>
+                        <a href="{% url 'home' %}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="my-3">
+                        <a href="{% url 'about' %}">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="{% url 'services' %}">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- //footer grid3 -->
+            <!-- footer grid4  -->
+            <div class="col-lg-3  col-sm-6 footv3-left my-lg-0 mt-5">
+                <h3 class="mb-4">subscribe to newsletter</h3>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <input type="email" class="form-control  bg-dark border-0" id="email" placeholder="Enter email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="Submit" class="form-control bg-secondary text-white border-0" id="sub" value="submit" name="sub">
+                    </div>
+                </form>
+            </div>
+            <!-- //footer grid4 -->
+        </div>
+        <div class="cpy-right text-center  pt-3">
+            
+            <div class="copyrightbottom">
+                <p class="text-secondary">© 2021 Zaina Clinic. All rights reserved | Developed by
+                    <a href="https://www.elinonga.com" class="text-white"> elinonga</a>
+                </p>
+            </div>
+            <div class="copyrighttop">
+                <ul>
+                    <li>
+                        <h4>Follow us on:</h4>
+                    </li>
+                    <li>
+                        <a class="facebook" href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="facebook" href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="facebook" href="#">
+                            <i class="fab fa-google-plus-g"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="facebook" href="#">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- //footer container -->
+</footer>
+<!-- //footer -->
+
+
+    <!-- //footer -->
+    <!-- js -->
+    <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+    <!-- //js -->
+	  <!--gallery -->
+	<script src="{% static 'js/jquery.chocolat.js' %}"></script>
+	<!--light-box-files -->
+	<script type="text/javascript">
+		$(function () {
+			$('.gallery-grid1 a').Chocolat();
+		});
+	</script>
+	<!-- //gallery -->
+
+    <!-- script for password match -->
+    <script>
+        window.onload = function () {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        }
+
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 != pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+    </script>
+    <!-- script for password match -->
+    <!-- start-smooth-scrolling -->
+    <script src="{% static 'js/move-top.js' %}"></script>
+    <script src="{% static 'js/easing.js' %}"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+    <script>
+        $(document).ready(function () {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+            */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <script src="{% static 'js/SmoothScroll.min.js' %}"></script>
+    <!-- //smooth-scrolling-of-move-up -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
