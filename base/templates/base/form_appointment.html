@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+   <!-- main image slider container -->
+        <div class="inner-banner">
+         </div>
+    <!-- end of main image slider container -->
+
+	 <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Create Appointment</li>
+        </ol>
+    </nav>
+    <!-- //breadcrumbs -->
+
+
+    <section class="wthree-row w3-contact py-lg-5">
+			<div class="container py-4">
+            <div class="text-center wthree-title pb-sm-5 pb-3">
+				<h3 class="w3l-sub">Create an Appointment</h3>
+				<h4 class="sub-title py-3">Fill in the form to make an appointment</h4>
+			</div>
+
+             <div class="modal-body">
+                    <form method="post" action="">
+                        {% csrf_token %}
+
+                        {% for field in form %}
+                            <div class="form-group">
+                                <label class="col-form-label">{{ field.label}}</label>
+                                <div class="controls">
+                                    {{ field }}
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        <div class="right-w3l mt-3">
+                            <input type="submit" value="Submit" class="form-control">
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+    </section>
+
+{% endblock content %}

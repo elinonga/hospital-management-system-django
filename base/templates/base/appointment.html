@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+    <!-- main image slider container -->
+        <div class="inner-banner">
+         </div>
+    <!-- end of main image slider container -->
+
+	 <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Appointment Details</li>
+        </ol>
+    </nav>
+    <!-- //breadcrumbs -->
+
+    <!-- contact -->
+    <section class="wthree-row w3-contact py-lg-5">
+			<div class="container py-4">
+                <div class="text-center wthree-title pb-sm-5 pb-3">
+                    <h3 class="w3l-sub">More Details</h3>
+                    <h4 class="sub-title py-3">More details on your appointment. consequat sapien ut leo cursus rhoncus.</h4>
+                </div>
+
+                <p><b> Patient's name:</b> {{ appointment.patient.name }}</p>
+                <p><b> Title:</b> {{ appointment.title }}</p>
+                <p><b> You are too see a :</b> {{ appointment.dept }}</p>
+                <p><b> Date:</b> {{ appointment.date }}</p>
+                <p><b> Time:</b> {{ appointment.time }}</p>
+
+
+            </div>
+    </section>
+
+{% endblock content %}

@@ -1,0 +1,115 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+    <!-- main image slider container -->
+        <div class="inner-banner">
+         </div>
+    <!-- end of main image slider container -->
+
+	 <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">View Appointments</li>
+        </ol>
+    </nav>
+    <!-- //breadcrumbs -->
+
+    <!-- contact -->
+    <section class="wthree-row w3-contact py-lg-5">
+			<div class="container py-4">
+                <div class="text-center wthree-title pb-sm-5 pb-3">
+                    <h3 class="w3l-sub">View Appointments</h3>
+                    <h4 class="sub-title py-3">Donec consequat sapien ut leo cursus rhoncus.</h4>
+
+                    <!-- Search Bar -->
+                        <form class="mt-5 mb-5 modal-body" method="GET" action="{% url 'view-appointment' %}">
+                            <input class="form-control" type="text" name="q" placeholder="Search Appointment...">
+                        </form>
+                    <!-- Search Bar -->
+
+                </div>
+
+
+
+                <div class="row">
+
+                    {#      Browse the Departments   #}
+                    <div class="col-4">
+                        <h3>Browse our Departments</h3>
+                        <hr>
+
+                        <div>
+                            <a href="{% url 'view-appointment' %}" >All <span>({{departments.count}})</span></a>
+                        </div>
+
+                        {% for department in departments %}
+                        <div>
+                            <a href="{% url 'view-appointment' %}?q={{ department.name }}" >{{ department.name }}</a>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+
+                    {#      Check the Appointments   #}
+                    <div class="col-8">
+                        <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Title</th>
+                          <th scope="col">Doctor</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for appointment in appointments %}
+
+                        {# Asione yasiyomuhusu#}
+                        {% if request.user == appointment.patient %}
+                            <tr>
+
+                              <td scope="row">
+                                  {{ appointment.id }}
+                              </td>
+
+                              <td>
+                                  <a href="{% url 'appointment' appointment.id %}">
+                                    {{ appointment.title }}
+                                  </a>
+                              </td>
+
+                              <td>
+                                  {{ appointment.dept }}
+                              </td>
+
+                              <td>
+                                  <a class="btn btn-warning" href="{% url 'update-appointment' appointment.id %}">Edit</a>
+
+                                  <a class="btn btn-danger" href="{% url 'delete-appointment' appointment.id %}">Delete</a>
+
+                              </td>
+
+                            </tr>
+                        {% endif %}
+
+                    {% endfor %}
+
+                      </tbody>
+                    </table>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+    </section>
+
+
+{% endblock content %}

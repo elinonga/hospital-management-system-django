@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <!-- contact -->
+    <section class="wthree-row w3-contact py-lg-5">
+			<div class="container py-4">
+                <div class="text-center wthree-title pb-sm-5 pb-3">
+                    <h3 class="w3l-sub">Welcome, {{ user.username }}</h3>
+                    <img class="avatar" src="{{request.user.avatar.url}}" />
+
+                    <p class="text-lg-center dont-do mt-3"><b>Name:</b> {{ user.name }}</p>
+                    <p class="text-lg-center dont-do mt-3"><b>Email:</b> {{ user.email }}</p>
+                    <p class="text-lg-center dont-do mt-3"><b>Phone:</b> {{ user.phone }}</p>
+                    <p class="text-lg-center dont-do mt-3 mb-5"><b>Username:</b> {{ user.username }}</p>
+
+                    <a href="{% url 'update-user' %}">Update Profile</a>
+
+                </div>
+
+            </div>
+    </section>
+
+
+{% endblock content %}
